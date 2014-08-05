@@ -20,8 +20,8 @@ foreach ($messages as $msg)
 <?= Form::label('password_confirm', 'Confirm Password')?>
 <?= Form::password('password_confirm') ?>
 <br>
-<?= Form::label('color', 'Favorite Color') ?>
-<?= Form::select('color', array('red' => 'red', 'green' =>'green', 'blue' => 'blue'), Input::old('color')) ?>
+<?= Form::label('party', 'Party/Event') ?>
+<?= Form::select('party', array('birthday' => 'birthday', 'babyshower' =>'babyShower', 'wedding' => 'wedding'), Input::old('party')) ?>
 <br>
 <?= Form::submit('Send it!') ?>
 <?= Form::close() ?>
