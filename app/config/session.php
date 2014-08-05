@@ -16,8 +16,8 @@ return array(
 	|
 	*/
 
-	'driver' => 'file',
-
+	// 'driver' => 'file',
+'driver' => 'native',
 	/*
 	|--------------------------------------------------------------------------
 	| Session Lifetime
