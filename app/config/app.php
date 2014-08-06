@@ -13,8 +13,8 @@ return array(
 	|
 	*/
 
-	'debug' => false,
-
+	// 'debug' => false,
+	'debug' => true,
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
@@ -27,7 +27,6 @@ return array(
 	*/
 
 	'url' => 'http://localhost',
-
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone
