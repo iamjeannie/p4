@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title', "Tell Me More")</title>
   <!-- Bootstrap core CSS -->
+  <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Bootstrap theme -->
   <link href="{{ asset('css/bootstrap-theme.min.css') }}" rel="stylesheet">
@@ -26,11 +27,14 @@
 </head>
 
 <body role="document">
+  @if(Session::get('flash_message'))
+		<div class='flash-message'>{{ Session::get('flash_message') }}</div>
+	@endif
   <div class="page-header">
     <a href="{{ URL::to('/') }}">
-      <img src="{{ asset('images/shh.jpg') }}" alt="Shh..tell no more">
+      <p style="text-align:center"><img src="{{ asset('images/shh.jpg') }}" alt="Shh..tell no more"></p>
     </a>
-    <h1 class="logo_title">Shhhhh ... </h1>
+    <h1 class="logo_title">  </h1>
   </div>
 
   <div class='container'>

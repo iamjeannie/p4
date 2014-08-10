@@ -48,6 +48,8 @@ class  UsersController extends BaseController {
         $user = new User();
         $user->username = Input::get('username');
         $user->email = Input::get('email');
+        $user->password = Input::get('password');
+        $user->admin = Input::get('admin');
         $user->save();
         return Redirect::to('users');
     }

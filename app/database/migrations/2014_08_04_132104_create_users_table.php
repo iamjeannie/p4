@@ -10,19 +10,17 @@ class CreateUsersTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
-		//
-		 Schema::create('users', function($table)
-        {
-            $table->increments('id');
-            $table->string('email');
-            $table->string('password', 64);
-            $table->string('username');
-            $table->boolean('admin');
-            $table->timestamps();
-        });
+
+		public function up() {
+		Schema::create('users', function($table) {
+			$table->increments('id');
+			$table->string('email')->unique();
+			$table->boolean('remember_token');
+			$table->string('password');
+			$table->timestamps();
+		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

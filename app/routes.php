@@ -10,12 +10,29 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/', 'IndexController@showIndex');
+// Route::get('/signup', 'UserController@getSignup');
+// Route::get('/login', 'UserController@getLogin' );
+// Route::post('/signup', 'UserController@postSignup');
+// Route::resource('user', 'UserController');
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
-#>>>------------test
+
+Route::get('/signup', 'UserController@getSignup');
+Route::get('/login', 'UserController@getLogin' );
+Route::post('/signup', ['before' => 'csrf', 'uses' => 'UserController@postSignup'] );
+Route::post('/login', ['before' => 'csrf', 'uses' => 'UserController@postLogin'] );
+Route::get('/logout', ['before' => 'auth', 'uses' => 'UserController@getLogout'] );
+
+Route::resource('accounts','AccountController');
+Route::resource('events','EventController');
+// Route::get('/','IndexController@showIndex');
+
+// Route::get('/', function()
+// {
+// 	return View::make('index');
+// });
+
+#>>>------------test-environment
 Route::get('/get-environment', function() {
     echo App::environment();
 });
@@ -154,4 +171,26 @@ Route::get('/debug', function() {
 
     echo '</pre>';
 
+});
+// ==========todelete
+Route::get('/practice', function() {
+
+    $fruit = Array('Apples', 'Oranges', 'Pears');
+
+    echo Pre::render($fruit,'Fruit');
+
+});
+// =============todelete pass data from route into view
+
+Route::get('home', function()
+{
+  $page_title = 'My Home Page Title';
+  return View::make('myviews.home')->with('title',$page_title);
+});
+Route::get('second', function()
+{
+  $view = View::make('myviews.second');
+  $view->my_name = 'John Doe';
+  $view->my_city = 'Austin';
+  return $view;
 });
