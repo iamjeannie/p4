@@ -69,7 +69,7 @@ class UserController extends BaseController {
 		$credentials = Input::only('email', 'password');
 
 		if (Auth::attempt($credentials, $remember = true)) {
-			return Redirect::intended('/home')->with('flash_message', 'Welcome Back!');
+			return Redirect::intended('/accounts')->with('flash_message', 'Welcome Back!');
 		}
 		else {
 			return Redirect::to('/login')
@@ -77,7 +77,7 @@ class UserController extends BaseController {
 				->withInput();
 		}
 
-		return Redirect::to('login');
+		return Redirect::to('/accounts');
 
 	}
 
